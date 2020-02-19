@@ -13,13 +13,18 @@ từ cần in đậm nằm trong \*\* ... \*\* hoặc \_\_ ... \_\_
 
 e.g:
 
-    \*\* in đậm \*\*
-    \_\_ in đậm \_\_
+    \*\*in đậm\*\*
+    \_\_in đậm\_\_
 
 kết quả
 
-    ** in đậm **
-    __ in đậm __
+**in đậm**
+
+**in đậm**
+
+**_chú ý:_**
+
+:point_right: từ muốn in đậm phải sát ký tự \*, không được cách 1 dấu cách
 
 # In nghiêng
 
@@ -32,8 +37,9 @@ e.g:
 
 kết quả
 
-    *in nghiêng*
-    _in nghiêng_
+_in nghiêng_
+
+_in nghiêng_
 
 # Vừa in đậm vừa in nghiêng
 
@@ -46,7 +52,19 @@ e.g:
 
 kết quả:
 
-    ___vừa in đậm vừa in nghiêng___
+**_vừa in đậm vừa in nghiêng_**
+
+# Link
+
+cho tiêu đề link vào [] và đường link vào ()
+
+e.g:
+
+    [Google](https://www.google.com.vn/)
+
+kết quả
+
+[Google](https://www.google.com.vn/)
 
 # Code
 
