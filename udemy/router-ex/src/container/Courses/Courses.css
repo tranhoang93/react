@@ -1,0 +1,20 @@
+.Courses {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.Course {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  margin: 10px;
+  padding: 10px;
+  text-shadow:0 0 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: box-shadow .3s ease;
+}
+
+.Courses a.active .Course{
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
+}

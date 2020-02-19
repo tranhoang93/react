@@ -1,0 +1,27 @@
+.App {
+  margin: 50px 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.App h3 {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.App input {
+  outline: none; 
+  margin: 0px 0px 20px; 
+  padding: 0px 10px; 
+  width: 400px; 
+  line-height: 50px; 
+  font-size: 18px; 
+  text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0.5px; 
+  border: none; 
+  border-radius: 5px;
+}

@@ -1,0 +1,24 @@
+.Wrap {
+  width: 500px;
+  margin: 0 auto 0;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Title {
+  text-align: center;
+}
+
+.Form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Error {
+  text-transform: capitalize;
+  color: #c0392b;
+}

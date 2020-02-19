@@ -1,0 +1,28 @@
+.Warning {
+  color: rgb(192, 57, 43);
+  font-size: 14px;
+  line-height: 1.1;
+  text-align: center;
+  display: inline-block;
+  padding: 5px 10px 5px 27px;
+  border: 1px solid rgb(192, 57, 43);
+  border-radius: 4px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.Warning::before {
+  content: "!";
+  text-align: center;
+  font-weight: 700;
+  display: block;
+  color: #be1111;
+  background-color: #e06969;
+  width: 15px;
+  height: 15px;
+  border-radius: 100px;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+}

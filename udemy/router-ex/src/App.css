@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+.App ul {
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+}
+
+.App li {
+  display: block;
+  margin: 0 5px;
+}
+
+.App a {
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+  color: rgb(17, 17, 17);
+  text-decoration: none;
+}
+
+.App a.active {
+  font-weight: 500;
+}

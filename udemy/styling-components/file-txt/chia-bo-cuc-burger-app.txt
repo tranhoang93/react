@@ -1,0 +1,155 @@
+So let's start planning this component tree, shall we? And for that of course, we need to define what our application
+actually is and what it should be able to do. Keep in mind, we're building the burger builder application so the goal is
+that users can use it to add ingredients and therefore build a burger. Now if we think about the UI and that is
+something you typically of course get by your designer or you already create it but if we think about the UI, we
+probably have some header at the top navigation bar where we're then able to go maybe to all our orders and where we
+have the builder itself, so the tool where we can build the burger and probably some logos, some text or an image to the
+left. Now the fine tuning, the colors sensor again, that is something you probably got by or designer, we're not going
+to take care about this here, we're going to add some colors as you create the application. Now what goes on the
+starting page? Let's say we're on the builder part here now, how should that look like? Well of course it's only up to
+you but for me it makes sense that we have an area where the actual burger is getting built, so where we see a preview
+of the burger we built. So that is super ugly here but that of course should be the burger we're building with the
+different ingredients which get added dynamically as we add them. Now to be able to add ingredients, we need some
+controls maybe sitting in a box or something like that below the burger. In there, we have stuff like meat, salad,
+cheese maybe even bacon and so on and we essentially got a button to add or remove each ingredient so that we can well
+build our burger and then we probably also want to have a check out button, so some button sitting below everything
+where we can tap on to buy our burger and obviously, we maybe also want to see a price or something like that below our
+burger as a preview so that we can always see what it would cost. Right now, this is the layout, the simple layout but
+which uses a lot of react concepts and which you can split up in a lot of components, for example here, what we'll
+probably have is a root layout, so if we build our component tree we probably have our app component and in this app
+component, we might define a base layout for this application which basically would be the header and the part below the
+header, we could say. So if we add this here, we might have a layout component and we could also define that layout in
+the app component. The layout component probably as I just said has a couple of other components nested besides it, some
+component responsive for navigation and for the content, so the navigation on the other hand might be split up in a tool
+bar and in a sideDrawer because we want to create a responsive application so we have to cater for both mobile devices
+and desktop devices. So maybe below our layout, we actually have four different components. We might have something like
+a toolbar which is always displayed and the items we display on it varies by the viewport, then we might have a
+sideDrawer, this is simply the side menu we can bring in when we're on the mobile device. For the sideDrawer we probably
+also want to have a backdrop, so I'll add a backdrop here too and having that backdrop here might make sense because
+maybe we also want to show a modal for the check out and then also want to have a backdrop on the root level of our dom
+basically. And then we want to have something which we can dynamically wrap, so whichever page you want to display.
+Later in the app, we're going to add routing so that we can navigate to different pages so we might want to display the
+burger builder page or the checkout page but all pages are going to share that layout. So we're essentially going to use
+props.children here, allowing us to dynamically pass a component in too depending on which page we want to do. So these
+are four components, props.children just as a dynamic component which we nest into our layout, these are the four
+components we probably have on that layout area here. So let's quickly connect them to the layout then, shall we, like
+that. Now our application is taking shape here, what should we have below the toolbar then? In the toolbar, we probably
+want to start writing the code already we need for the toolbar, so the hmtl code we could say, but the toolbar also
+might contain some components we add. For example we probably want to have a button which toggles that sideDrawer but
+we'll create these on the fly basically and see how we split up but things to keep in mind here are basically the drawer
+toggle, so a button which targets the sideDrawer, logo which you want to display and our navigation items and I'm
+deliberately spanning navigation items below these sideDrawer here too because there, we're also going to need
+navigation items and if we were to outsource navigation items into their own component, we might be able to actually
+share them across the toolbar and the sideDrawer because we need the same navigation items, we just need to display them
+differently for different viewports. So in the sideDrawer, we probably also want to use the logo then because again this
+is something you want to show in both viewports, just differently styled. So this might be how sideDrawer and toolbar
+are structured, that backdrop basically will just hold some html code, we won't have nested children. So that leaves us
+the props.children, that's of course important. Here we have different pages but for now we're only going to start with
+one page, that will be our burger builder page, so a burger builder component. Now how should that burger builder then
+look like? That burger builder in the end has to give us the build controls, we have a look at our layout, the build
+controls, the part where we can add and remove meat, salad and cheese and the check out button and the preview of the
+burger, these are the essential building blocks of the burger builder. So what we need in the end here is a couple of
+components, we need to have our build controls, again with all these ingredient buttons, we need to have the burger
+component giving us that preview of the burger and I also want to have some modal which gives us a check out preview, so
+where we basically see a summary and could proceed to check out, something like that. So these are the general
+components and again we might find a finer split or some subcomponents you want to create once we actually start working
+on this but for now, that's the split I want to have here. Now if you think about the build controls then, how should
+these be structured, what's the build controls components content? Well it probably is a list of individual build
+control components, so something like this, build control. It's of course one and the same component, just a list of it
+so it might look like that and of course we probably also want to have our order button there, like this so that we have
+a button to check this burger out. Now for that, we have to list for one but then we also have this order button
+additional sitting below it. Now the individual build control elements and the order button are probably just going to
+contain some html, and with that I always mean jsx code. Now how does the burger preview look like? The burger preview
+basically should hold a couple of ingredient components, so a list of ingredients which we dynamically manage of course,
+which the user dynamically manages with the build controls. So that's the idea here, we're going to have that list of
+ingredients below the burger component and each ingredient probably is just something like that div which either
+displays an image or where we create ingredient representation with css, we will add this styling together of course.
+And the modal finally, well that probably should just be a wrapper component which in the end takes props.children to
+wrap itself around any content we want to render in a modal so that we have a reusable modal we could theoretically use
+for all kinds of stuff, displaying a confirmation message, an error message or an order summary as we plan to do. So
+these are probably not all the components were going to add but it is a good overview over our tree. We see that
+everything starts with one root component here at the top and then we split the tree up, having a layout which could be
+part of the root component as I mentioned and then having all the different branches. Now here, where we have the burger
+builder, this will be kind of like a page. It is a normal component no worries, but we probably will add more pages
+throughout this course when we start adding a page where we can see all past orders and stuff like that. Let's in the
+next step identify the state of our application.
+TIẾNG VIỆT
+Vì vậy, hãy bắt đầu lập kế hoạch cây thành phần này, phải không? Và tất nhiên, chúng ta cần xác định ứng dụng của mình
+thực sự là gì và ứng dụng nào có thể làm được. Hãy nhớ rằng, chúng tôi đang xây dựng ứng dụng xây dựng burger vì vậy mục
+tiêu là người dùng có thể sử dụng nó để thêm các thành phần và do đó xây dựng một burger. Bây giờ nếu chúng ta nghĩ về
+UI và đó là thứ mà bạn thường nhận được bởi nhà thiết kế của bạn hoặc bạn đã tạo nó nhưng nếu chúng ta nghĩ về UI, có lẽ
+chúng ta có một số tiêu đề ở thanh điều hướng trên cùng, nơi chúng ta có thể đi có thể cho tất cả các đơn đặt hàng của
+chúng tôi và nơi chúng tôi có chính người xây dựng, vì vậy công cụ nơi chúng tôi có thể xây dựng bánh burger và có thể
+một số logo, một số văn bản hoặc hình ảnh ở bên trái. Bây giờ tinh chỉnh, cảm biến màu sắc một lần nữa, đó là thứ mà bạn
+có thể có hoặc nhà thiết kế, chúng tôi sẽ không quan tâm đến vấn đề này ở đây, chúng tôi sẽ thêm một số màu khi bạn tạo
+ứng dụng. Bây giờ những gì đi trên trang bắt đầu? Chúng ta hãy nói rằng chúng ta đang ở trong phần xây dựng ở đây bây
+giờ, nó trông như thế nào? Tất nhiên, điều đó chỉ tùy thuộc vào bạn nhưng đối với tôi, điều hợp lý là chúng tôi có một
+khu vực nơi mà bánh burger thực tế đang được xây dựng, vì vậy chúng tôi thấy một bản xem trước của burger chúng tôi đã
+xây dựng. Vì vậy, điều đó là siêu xấu xí ở đây nhưng tất nhiên đó phải là bánh burger chúng tôi đang xây dựng với các
+thành phần khác nhau được thêm động khi chúng tôi thêm chúng. Bây giờ để có thể thêm các thành phần, chúng ta cần một số
+điều khiển có thể ngồi trong hộp hoặc một cái gì đó tương tự bên dưới bánh burger. Trong đó, chúng tôi có những thứ như
+thịt, salad, phô mai thậm chí có thể là thịt xông khói và về cơ bản chúng tôi có một nút để thêm hoặc loại bỏ từng thành
+phần để chúng tôi có thể xây dựng bánh burger của mình và sau đó có lẽ chúng tôi cũng muốn có một nút kiểm tra , vì vậy
+một số nút ngồi bên dưới mọi thứ mà chúng ta có thể chạm vào để mua bánh burger của chúng tôi và rõ ràng, chúng ta cũng
+có thể muốn xem giá hoặc một cái gì đó tương tự bên dưới bánh burger của chúng tôi như một bản xem trước để chúng ta
+luôn có thể thấy nó sẽ có giá bao nhiêu. Ngay bây giờ, đây là bố cục, bố cục đơn giản nhưng sử dụng nhiều khái niệm phản
+ứng và bạn có thể chia thành nhiều thành phần, ví dụ ở đây, những gì chúng ta có thể có là bố cục gốc, vì vậy nếu chúng
+ta xây dựng cây thành phần của chúng tôi có thể có thành phần ứng dụng của chúng tôi và trong thành phần ứng dụng này,
+chúng tôi có thể xác định bố cục cơ sở cho ứng dụng này, về cơ bản sẽ là tiêu đề và phần bên dưới tiêu đề, chúng tôi có
+thể nói. Vì vậy, nếu chúng ta thêm cái này vào đây, chúng ta có thể có một thành phần bố cục và chúng ta cũng có thể xác
+định bố cục đó trong thành phần ứng dụng. Thành phần bố cục có thể như tôi vừa nói có một vài thành phần khác được lồng
+bên cạnh nó, một số thành phần đáp ứng cho điều hướng và cho nội dung, do đó, điều hướng mặt khác có thể được tách ra
+trong một thanh công cụ và trong SideDrawer vì chúng tôi muốn để tạo một ứng dụng đáp ứng, do đó chúng tôi phải phục vụ
+cho cả thiết bị di động và thiết bị máy tính để bàn. Vì vậy, có thể bên dưới bố trí của chúng tôi, chúng tôi thực sự có
+bốn thành phần khác nhau. Chúng ta có thể có một cái gì đó giống như một thanh công cụ luôn được hiển thị và các mục
+chúng ta hiển thị trên nó thay đổi theo chế độ xem, sau đó chúng ta có thể có sideDrawer, đây đơn giản là menu phụ chúng
+ta có thể mang theo khi sử dụng thiết bị di động. Đối với sideDrawer có lẽ chúng ta cũng muốn có một phông nền, vì vậy
+tôi cũng sẽ thêm một phông nền ở đây và có phông nền ở đây có thể có ý nghĩa bởi vì có lẽ chúng ta cũng muốn hiển thị
+một phương thức cho việc kiểm tra và sau đó cũng muốn có một phông nền về cấp độ gốc của dom của chúng ta về cơ bản. Và
+sau đó chúng tôi muốn có một cái gì đó mà chúng tôi có thể tự động bọc, vì vậy bất kỳ trang nào bạn muốn hiển thị. Sau
+này trong ứng dụng, chúng tôi sẽ thêm định tuyến để chúng tôi có thể điều hướng đến các trang khác nhau để chúng tôi có
+thể muốn hiển thị trang trình tạo burger hoặc trang thanh toán nhưng tất cả các trang sẽ chia sẻ bố cục đó. Vì vậy, về
+cơ bản chúng tôi sẽ sử dụng props.children ở đây, cho phép chúng tôi tự động chuyển một thành phần tùy thuộc vào trang
+chúng tôi muốn làm. Vì vậy, đây là bốn thành phần, props.children giống như một thành phần động mà chúng ta lồng vào bố
+cục của chúng, đây là bốn thành phần chúng ta có thể có trên khu vực bố trí đó ở đây. Vì vậy, hãy nhanh chóng kết nối
+chúng với bố cục, sau đó, chúng ta sẽ như thế. Bây giờ ứng dụng của chúng ta đang hình thành ở đây, chúng ta nên có gì
+dưới thanh công cụ? Trong thanh công cụ, có lẽ chúng tôi muốn bắt đầu viết mã mà chúng tôi cần cho thanh công cụ, vì vậy
+mã hmtl chúng tôi có thể nói, nhưng thanh công cụ cũng có thể chứa một số thành phần chúng tôi thêm. Ví dụ: chúng tôi có
+thể muốn có một nút bật tắt bên đóDrawer nhưng về cơ bản chúng tôi sẽ tạo ra các nút này và xem cách chúng tôi chia ra
+nhưng về cơ bản, đây là nút để chuyển đổi, vì vậy một nút nhắm vào sideDrawer, logo mà bạn muốn hiển thị và các mục điều
+hướng của chúng tôi và tôi cố tình kéo dài các mục điều hướng bên dưới các bên này. Tại đây, chúng tôi cũng sẽ cần các
+mục điều hướng và nếu chúng tôi thuê ngoài các mục điều hướng vào thành phần của chúng, chúng tôi có thể có thể thực sự
+chia sẻ chúng trên thanh công cụ và sideDrawer vì chúng ta cần các mục điều hướng giống nhau, chúng ta chỉ cần hiển thị
+chúng khác nhau cho các chế độ xem khác nhau. Vì vậy, trong sideDrawer, có lẽ chúng tôi cũng muốn sử dụng logo vì một
+lần nữa đây là thứ bạn muốn hiển thị trong cả hai chế độ xem, chỉ khác nhau về kiểu dáng. Vì vậy, đây có thể là cách cấu
+trúc sideDrawer và thanh công cụ, nền tảng đó về cơ bản sẽ chỉ chứa một số mã html, chúng ta sẽ không có các con lồng
+nhau. Vì vậy, điều đó để lại cho chúng tôi đạo cụ. Trẻ em, điều đó tất nhiên quan trọng. Ở đây chúng tôi có các trang
+khác nhau nhưng hiện tại chúng tôi sẽ chỉ bắt đầu với một trang, đó sẽ là trang xây dựng bánh mì kẹp thịt của chúng tôi,
+vì vậy một thành phần xây dựng bánh mì kẹp thịt. Bây giờ nên xây dựng burger như thế nào? Người xây dựng bánh burger
+cuối cùng phải cung cấp cho chúng tôi các điều khiển xây dựng, chúng tôi đã xem xét bố cục của chúng tôi, các điều khiển
+xây dựng, phần mà chúng tôi có thể thêm và loại bỏ thịt, salad và phô mai và nút kiểm tra và xem trước của burger , đây
+là những khối xây dựng thiết yếu của người xây dựng bánh burger. Vì vậy, cái cuối cùng chúng ta cần là một vài thành
+phần, chúng ta cần có các điều khiển xây dựng, một lần nữa với tất cả các nút thành phần này, chúng ta cần có thành phần
+burger cung cấp cho chúng ta bản xem trước của burger và tôi cũng muốn có một số phương thức cung cấp cho chúng tôi bản
+xem trước kiểm tra, vì vậy về cơ bản chúng tôi sẽ thấy một bản tóm tắt và có thể tiến hành kiểm tra, đại loại như thế.
+Vì vậy, đây là các thành phần chung và một lần nữa chúng ta có thể tìm thấy sự phân chia tốt hơn hoặc một số thành phần
+con bạn muốn tạo khi chúng ta thực sự bắt đầu làm việc này nhưng bây giờ, đó là sự phân chia mà tôi muốn có ở đây. Bây
+giờ nếu bạn nghĩ về các điều khiển xây dựng thì chúng nên được cấu trúc như thế nào, nội dung của các điều khiển xây
+dựng là gì? Vâng, nó có thể là một danh sách các thành phần kiểm soát xây dựng cá nhân, vì vậy một cái gì đó như thế
+này, xây dựng kiểm soát. Tất nhiên đó là một và cùng một thành phần, chỉ là một danh sách của nó để nó có thể trông
+giống như vậy và tất nhiên có lẽ chúng ta cũng muốn có nút đặt hàng ở đó, như thế này để chúng ta có một nút để kiểm tra
+chiếc burger này. Bây giờ để làm điều đó, chúng tôi phải liệt kê cho một nhưng sau đó chúng tôi cũng có nút đặt hàng này
+ngồi bên dưới nó. Bây giờ các phần tử điều khiển xây dựng riêng lẻ và nút đặt hàng có thể sẽ chứa một số html và với
+điều đó tôi luôn có nghĩa là mã jsx. Bây giờ làm thế nào để xem trước burger trông như thế nào? Bản xem trước burger về
+cơ bản nên chứa một vài thành phần thành phần, do đó, một danh sách các thành phần mà chúng tôi tự động quản lý, mà
+người dùng tự động quản lý với các điều khiển xây dựng. Vì vậy, đó là ý tưởng ở đây, chúng ta sẽ có danh sách các thành
+phần bên dưới thành phần burger và mỗi thành phần có lẽ chỉ là một thứ giống như div hiển thị hình ảnh hoặc nơi chúng ta
+tạo đại diện thành phần bằng css, chúng ta sẽ thêm kiểu dáng này với nhau tất nhiên. Và phương thức cuối cùng, có lẽ chỉ
+nên là một thành phần của trình bao bọc mà cuối cùng cần có đạo cụ công cụ, hiển thị một thông báo xác nhận, thông báo
+lỗi hoặc tóm tắt đơn hàng như chúng tôi dự định làm. Vì vậy, đây có thể không phải là tất cả các thành phần sẽ thêm
+nhưng đó là một tổng quan tốt về cây của chúng tôi. Chúng tôi thấy rằng mọi thứ bắt đầu với một thành phần gốc ở trên
+cùng và sau đó chúng tôi tách cây lên, có bố cục có thể là một phần của thành phần gốc như tôi đã đề cập và sau đó có
+tất cả các nhánh khác nhau. Bây giờ ở đây, nơi chúng tôi có người xây dựng bánh burger, đây sẽ giống như một trang. Nó
+là một thành phần bình thường không phải lo lắng, nhưng chúng tôi có thể sẽ thêm nhiều trang hơn trong suốt khóa học này
+khi chúng tôi bắt đầu thêm một trang nơi chúng tôi có thể thấy tất cả các đơn đặt hàng trước đây và những thứ tương tự.
+Hãy ở bước tiếp theo xác định trạng thái của ứng dụng của chúng tôi.

@@ -1,0 +1,11 @@
+.Wrap {
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.Text {
+  text-align: center;
+  display: inline-block;
+  line-height: 2em;
+}

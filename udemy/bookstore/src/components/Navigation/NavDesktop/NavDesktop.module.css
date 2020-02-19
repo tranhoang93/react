@@ -1,0 +1,44 @@
+.Wrap {
+  width: 100%;
+  height: 60px;
+  background-color: #0c1c25;
+  border-bottom: 1px solid #1b2d33;
+}
+
+.Container {
+  width: 83.33%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Nav {
+  height: 100%;
+  display: flex;
+}
+
+@media (min-width: 1260px) {
+  .Container {
+    width: 1200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Container {
+    justify-content: center;
+  }
+
+  .Nav {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .Container {
+    width: 100%;
+  }
+}

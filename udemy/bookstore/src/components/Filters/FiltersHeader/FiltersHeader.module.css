@@ -1,0 +1,36 @@
+.Header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 35px;
+}
+
+.Title {
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+}
+
+.Btn {
+  color: rgba(255, 255, 255, .8);
+  background-color: transparent;
+  border-color: #1b2d33;
+  border-radius: unset;
+  padding: 0 20px;
+  min-height: 35px;
+  box-shadow: none;
+  outline: none;
+  font-size: 1.4rem;
+  transition: all .2s;
+}
+
+.Btn:hover, .Btn:focus {
+  border-color: #d47559;
+  background-color: transparent;
+  box-shadow: none;
+  color: #fff;
+}
+
+
+

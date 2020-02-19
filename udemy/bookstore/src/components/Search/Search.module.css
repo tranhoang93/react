@@ -1,0 +1,54 @@
+.Wrap {
+  min-width: 300px;
+  min-height: 35px;
+  padding: 6px 12px;
+  border: 1px solid #1b2d33;
+  transition: border-color .3s;
+}
+
+.Wrap.Focused {
+  border-color: #d47559;
+}
+
+.Row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.SearchIcon, .CloseIcon {
+  color: rgba(255, 255, 255, .8);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.SearchIcon {
+  margin-right: 12px;
+}
+
+.Input {
+  border: none;
+  outline: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, .8);
+  background-color: transparent;
+  flex: 1;
+}
+
+.CloseIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  transform: scale(0);
+  transition: transform .3s;
+}
+
+.CloseIcon.Active {
+  transform: scale(1);
+}

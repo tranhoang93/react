@@ -1,0 +1,39 @@
+.TodoItem {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 .5rem 0 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.TodoItem:hover > .close {
+  visibility: visible;
+}
+
+.TodoItem .img-checkbox {
+  flex: 0 auto;
+  cursor: pointer;
+  user-select: none;
+}
+
+.TodoItem .text {
+  flex: 1 auto;
+  margin-left: 1rem;
+  padding-left: 0.5rem;
+}
+
+.TodoItem .text.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.TodoItem .close {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  visibility: hidden;
+}

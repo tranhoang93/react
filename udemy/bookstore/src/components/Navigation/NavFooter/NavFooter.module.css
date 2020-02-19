@@ -1,0 +1,10 @@
+.Nav {
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Nav li {
+  margin: 0 20px;
+}

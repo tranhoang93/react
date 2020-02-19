@@ -1,0 +1,11 @@
+muốn sử dụng React.createRef() trong functional component thì phải thêm React hook:
+
+import React, { useRef } from 'react';
+
+const name = props => {
+  const actRef = useRef();
+
+  .....
+};
+
+export default name;

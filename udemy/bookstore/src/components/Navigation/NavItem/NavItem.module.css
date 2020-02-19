@@ -1,0 +1,40 @@
+.Item {
+  height: 100%;
+}
+
+.Link {
+  width: 100%;
+  height: 100%;
+  padding: 6px 24px;
+  color: rgba(255, 255, 255, 0.54);
+  font-weight: 500;
+  font-size: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: color .2s ease-in-out;
+}
+
+.Link:hover,
+.Link.active {
+  color: #fff;
+}
+
+.Link:hover::before,
+.Link.active::before {
+  width: 100%;
+}
+
+.Link::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background-color: #d47559;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width .3s ease-in-out;
+}

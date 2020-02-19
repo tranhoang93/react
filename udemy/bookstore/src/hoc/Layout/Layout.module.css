@@ -1,0 +1,32 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 576px) {
+  .Container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .Container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .Container {
+    max-width: 932px;
+  }
+}
+
+@media (min-width: 1260px) {
+  .Container {
+    max-width: 1200px;
+  }
+}

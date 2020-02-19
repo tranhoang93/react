@@ -1,0 +1,30 @@
+.Wrap {
+  position: absolute;
+  top: -18px;
+  left: calc(100% + 12px);
+}
+
+.Btn {
+  width: 60px;
+  height: 49px;
+  padding: 12px 12px;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.Btn > div {
+  width: 90%;
+  height: 3px;
+  background-color: #fff;
+}
+
+@media (min-width: 769px) {
+  .Btn {
+    display: none;
+  }
+}

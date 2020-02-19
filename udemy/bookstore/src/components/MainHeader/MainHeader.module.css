@@ -1,0 +1,14 @@
+.Wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 35px;
+}
+
+.Wrap h2 {
+  margin: 0 20px 0 0;
+  display: inline-block;
+  color: rgba(255, 255, 255, .87);
+  font-weight: 600;
+  vertical-align: middle;
+}
