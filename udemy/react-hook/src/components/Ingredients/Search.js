@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import Card from '../UI/Card';
 import './Search.css';
 
-const Search = React.memo(props => {
+const Search = memo(props => {
   return (
     <section className="search">
       <Card>

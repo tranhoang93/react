@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { memo, useState } from 'react';
 
 import './ErrorModal.css';
 
-const ErrorModal = React.memo(props => {
+const ErrorModal = memo(props => {
+
+
   return (
-    <React.Fragment>
+    <>
       <div className="backdrop" onClick={props.onClose} />
       <div className="error-modal">
         <h2>An Error Occurred!</h2>
@@ -15,7 +17,7 @@ const ErrorModal = React.memo(props => {
           </button>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 });
 
