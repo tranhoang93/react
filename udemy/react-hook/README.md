@@ -22,9 +22,7 @@ kết quả
 
 **in đậm**
 
-**_chú ý:_**
-
-:point_right: từ muốn in đậm phải sát ký tự \*, không được cách 1 dấu cách
+**_chú ý:_** từ muốn in đậm phải sát ký tự \*, không được cách 1 dấu cách
 
 # In nghiêng
 
