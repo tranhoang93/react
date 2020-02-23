@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect, useCallback } from 'react';
+import React, { useReducer, useEffect, useCallback } from 'react';
 
 import IngredientForm from './IngredientForm';
 import IngredientList from './IngredientList';
@@ -70,9 +70,9 @@ const Ingredients = () => {
         dispatch({ type: "ADD", ingredient: { id: responseData.name, ...ingredient } });
       })
       .catch(error => {
-        dispatchHttp({ type: "ERROR", errorMessage: "Something went wro" });
+        dispatchHttp({ type: "ERROR", errorMessage: "Something went wrong" });
         // setError("Something went wrong!");
-        console.log("Something went wro");
+        console.log("Something went wrong");
       });
   };
 
@@ -89,10 +89,10 @@ const Ingredients = () => {
       // );
       dispatch({ type: "REMOVE", id: ingredientId });
     }).catch(error => {
-      dispatchHttp({ type: "ERROR", errorMessage: "Something went wro" });
+      dispatchHttp({ type: "ERROR", errorMessage: "Something went wrong" });
       // setError("Something went wrong!");
       // setIsLoading(false);
-      console.log("Something went wro");
+      console.log("Something went wrong");
     })
   };
 
@@ -103,7 +103,7 @@ const Ingredients = () => {
 
   return (
     <div className="App">
-      {httpState.errorMessage && <ErrorModal onClose={clearError}>{httpState.errorMessage}</ErrorModal>}
+      {httpState.error && <ErrorModal onClose={clearError}>{httpState.error}</ErrorModal>}
 
       <IngredientForm
         onAddIngredient={addIngredientHandler}
