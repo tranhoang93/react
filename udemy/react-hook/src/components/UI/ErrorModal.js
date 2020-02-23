@@ -1,10 +1,8 @@
-import React, { memo, useState } from 'react';
+import React from 'react';
 
 import './ErrorModal.css';
 
-const ErrorModal = memo(props => {
-
-
+const ErrorModal = props => {
   return (
     <>
       <div className="backdrop" onClick={props.onClose} />
@@ -19,6 +17,6 @@ const ErrorModal = memo(props => {
       </div>
     </>
   );
-});
+};
 
-export default ErrorModal;
+export default React.memo(ErrorModal);
