@@ -10,6 +10,8 @@ const IngredientForm = props => {
 
   const inputRef = useRef(null);
 
+  console.log("RENDERING INGREDIENT FORM");
+
   const submitHandler = event => {
     event.preventDefault();
     props.onAddIngredient({ title: enteredTitle, amount: enteredAmount });
@@ -32,6 +34,7 @@ const IngredientForm = props => {
               onChange={event => {
                 setEnteredTitle(event.target.value);
               }}
+              required
             />
           </div>
           <div className="form-control">
