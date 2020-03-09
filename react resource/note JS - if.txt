@@ -1,0 +1,22 @@
+for...in ==== "obj"
+for...of ==== "arr"
+
+if...else ===== "condition ? expression when true : expression when false"  (ternary operator)
+exemple1: 
+	var x;				|	
+	if (true) {			|
+		x = 1;			|	var x = true ? 1 : -1;
+	} else {			|						
+		x = -1;			|
+	}				|
+exemple2:
+	var y;				|	
+	if (number) {			|
+		y = 'number';		|
+	} else if (string) {		|
+		y = 'string';		|	var y = number ? 'number' : string ? 'string' : array ? 'array' : 'other';
+	} else if (array) {		|
+		y = 'array';		|
+	} else {			|
+		y = 'other';		|
+	}

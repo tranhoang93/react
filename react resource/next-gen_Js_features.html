@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Next-Gen Javascript Features</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        code {
+            font-size: 15px;
+        }
+
+        pre {
+            font-size: 16px;
+            color: #F44336;
+            background-color: #202125;
+            padding-top: 15px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Next-Gen JavaScript Features - Tóm tắt</h1>
+    <p>
+        Trong modules này, tôi đã cung cấp một giới thiệu ngắn gọn về một số tính năng cốt lõi "next-gen JavaScript features", tất nhiên tập trung vào những tính năng bạn sẽ thấy nhiều nhất trong khóa học này. Đây là một bản tóm tắt nhanh chóng!
+    </p>
+
+    <h3>let & const</h3>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">Đọc thêm về let</a>
+    <br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">Đọc thêm về const</a> 
+
+    <p>
+        let  và const  cơ bản thay thế var . Bạn sử dụng let  thay vì var  và const  thay vì var  nếu bạn có kế hoạch không bao giờ gán lại "biến" này (do đó có hiệu quả biến nó thành một hằng số).
+    </p>
+
+    <h3>Arrow Function ES6</h3>
+
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Fifts/Arrow_fifts">Đọc thêm</a>
+
+    <p>
+        Các Arrow Function là một cách khác nhau để tạo các hàm trong JavaScript. Bên cạnh một cú pháp ngắn hơn, họ cung cấp các lợi thế khi nói đến việc giữ phạm vi của từ khóa `this` (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_binding_of_this">xem tại đây</a>).
+    </p>
+
+    <p>Cú pháp Arrow Function có thể trông lạ nhưng thực ra nó đơn giản.</p>
+
+    
+    <pre>
+        function callMe( name ) {
+            console.log( name );
+        }
+    </pre>
+    
+
+    <p>mà bạn cũng có thể viết là:</p>
+
+    <pre>
+        const callMe = function ( name ) {
+            console.log( name );
+        }
+    </pre>
+
+    <p>trở thành: </p>
+
+    <pre>
+        const callMe = ( name ) => {    
+            console.log( name );
+        }
+    </pre>
+
+    <p><strong>Quan trọng: </strong></p>
+
+    <p>Khi không có đối số , bạn phải sử dụng dấu ngoặc rỗng trong khai báo <code>function</code> :</p>
+
+    <pre>
+        const callMe = () => {    
+            console.log( 'Max!' );
+        }
+    </pre>
+
+    <p>Khi có chính xác một đối số , bạn có thể bỏ qua dấu ngoặc đơn:</p>
+
+    <pre>
+        const callMe = name => {  
+            console.log( name );
+        }
+    </pre>
+
+    <p>Khi chỉ trả về một giá trị (<code>return</code>) , bạn có thể viết tắt như sau:</p>
+
+    <pre>
+        const returnMe = name => name
+    </pre>
+
+    <p>Điều đó tương đương với:</p>
+
+    <pre>
+        const returnMe = name => {  
+            return name ;
+        }
+    </pre>
+
+    <h3>export & import</h3>
+
+    <p>
+        Trong các React projects (và thực tế trong tất cả các JavaScript projects hiện đại), bạn chia <code>code</code> của mình thành nhiều files JavaScript - cái gọi là <i>modules</i>. Bạn làm điều này để giữ cho mỗi file/modules tập trung và quản lý được.
+    </p>
+ 
+    <p>Để vẫn truy cập chức năng trong một file khác, bạn cần <code>export</code> (để làm cho nó có sẵn) và <code>import</code> (để có quyền truy cập).</p>
+
+    <p>Bạn có hai loại <code>export</code> khác nhau: <strong>default</strong> <code>export</code> (<b>unnamed</b>-không tên) và <strong>named</strong> <code>export</code> (<b>named</b>-có tên) :</p>
+
+    <p><strong>default</strong> => <code>export default ...;</code></p>
+
+    <p><strong>named</strong> => <code>export const someData = ...;</code> </p>
+
+    <p>Bạn có thể <code>import</code> <b>default</b> <code>export</code> như thế này:</p>
+
+    <pre>
+        import someNameOfYourChoice from './path/to/file.js';
+    </pre>
+
+    <p>Đáng ngạc nhiên,<code>someNameOfYourChoice</code> hoàn toàn phụ thuộc vào bạn.</p>
+
+    <p><b>Named</b> <code>export</code> phải được <code>import</code> theo tên của họ:</p>
+
+    <pre>
+        import { someData } from './path/to/file.js';
+    </pre>
+
+    <p>Một tệp chỉ có thể chứa một <b>default</b> <code>export</code> và không giới hạn số lần <b>named</b> <code>export</code>. Bạn cũng có thể trộn một <b>default</b> <code>export</code> với bất kỳ số lượng <b>named</b> <code>export</code> nào trong cùng một file.</p>
+
+    <p>Khi <code>import</code> <b>named</b> <code>export</code>, bạn cũng có thể <code>import</code> tất cả <b>named</b> <code>export</code> cùng một lúc với cú pháp sau:</p>
+
+    <pre>
+        import * as upToYou from './path/to/file.js';
+    </pre>
+
+    <p><code>upToYou</code> là - tốt - tùy thuộc vào bạn và chỉ đơn giản gói tất cả các biến/hàm đã xuất trong một JavaScript object. Ví dụ: nếu bạn <code>export const someData = ...  ( /path/to/file.js )</code> bạn có thể truy cập <code>upToYou</code> như thế này :  <code>upToYou.someData</code> .</p>
+
+    <h3>Class</h3>
+
+    <p>Các class là một tính năng về cơ bản thay thế <code>constructor function</code> và <code>prototype</code>. Bạn có thể xác định kế hoạch chi tiết cho các JavaScript object với chúng. </p>
+
+    <p>Như thế này:</p>
+
+    <pre>
+        class Person {  
+            constructor() { 
+                this.name = 'Max'; 
+            }
+        }
+
+        const person = new Person();
+        console.log( person.name ); // in 'Max' 
+    </pre>
+ 
+    <p>Trong ví dụ trên, không chỉ <code>class</code> mà cả thuộc tính của <code>class</code> đó (=>  <code>name</code> ) được định nghĩa(<code>defined</code>). Cú pháp bạn thấy ở đó, là cú pháp "cũ" để xác định các thuộc tính. Trong các JavaScript project hiện đại (như project được sử dụng trong khóa học này), bạn có thể sử dụng cách sau đây thuận tiện hơn để xác định các thuộc tính <code>class</code>:</p>
+
+    <pre>
+        class Person {  
+            name = 'Max'; 
+        }
+     
+        const person = new Person();  
+        console.log( person.name ); // in 'Max' 
+    </pre>
+
+    <p>Bạn cũng có thể định nghĩa các method như thế này:</p>
+
+    <pre>
+        class Person {  
+            name = 'Max'; 
+            printMyName() { 
+                console.log( this.name ); // this là bắt buộc để tham chiếu đến class! 
+            }
+        }
+         
+        const person = new Person();  
+        person.printMyName();
+    </pre>
+
+    <p>Hoặc như thế này:</p>
+
+    <pre>
+        class Person {  
+            name = 'Max'; 
+            printMyName = () => {   
+                console.log( this.name );
+            }
+        }
+         
+        const person = new Person();  
+        person.printMyName();
+    </pre>
+
+    <p>Cách tiếp cận thứ hai có cùng lợi thế như tất cả các <mark>Arrow Function</mark> có: Từ khóa <code style="color: #F44336">this</code> không thay đổi tham chiếu của nó.</p>
+
+    <p>Bạn cũng có thể sử dụng tính kế thừa khi sử dụng các class:</p>
+
+    <pre>
+        class Human {  
+            species = 'Person'; 
+        }
+         
+        class Person extends Human {    
+            name = 'Max'; 
+            printMyName = () => {   
+                console.log( this.name );
+            }
+        }
+         
+        const person = new Person();  
+        person.printMyName();
+        console.log( person.species ); // in 'Person'
+    </pre>
+
+    <h3>Spread & Rest Operator</h3>
+
+    <p>Các <mark><b>spread and rest operator</b></mark> thực sự sử dụng cùng một cú pháp: 
+        <code style="color: #F44336; background-color: #202125">...</code></p>
+
+    <p>Vâng, đó là toán tử - chỉ ba dấu chấm. Việc sử dụng sẽ xác định xem bạn đang sử dụng nó làm toán tử <mark><b>spread</b></mark> hay <mark><b>rest</b></mark>.</p>
+
+    <p>Sử dụng toán tử <b>spread</b> (spread operator):</p>
+
+    <p><b>spread operator</b> cho phép bạn kéo các phần tử ra khỏi một mảng (=> chia mảng thành một danh sách các phần tử của nó) hoặc kéo các thuộc tính ra khỏi một đối tượng. Đây là hai ví dụ:</p>
+
+    <pre>
+        const oldArray = [ 1 , 2 , 3 ];   
+        const newArray = [... oldArray , 4 , 5 ]; //  [1, 2, 3, 4, 5];    
+    </pre>
+
+<p>Đây là <mark><b>spread operator</b></mark> được sử dụng trên một đối tượng:</p>
+
+    <pre>
+        const oldObject = { 
+            name: 'Max' 
+        };
+
+        const newObject = { 
+            ... oldObject,
+            age: 28 
+        };
+    </pre>
+
+    <p><code>newObject</code> sau đó sẽ là:</p>
+
+    <pre>
+        {
+            name: 'Max' , 
+            age: 28 
+        }
+    </pre>
+
+    <p>Toán tử lây lan (<mark><b>spread operator</b></mark>) cực kỳ hữu ích để nhân bản mảng và đối tượng. Vì cả hai đều là loại tham chiếu (và không phải là nguyên thủy) , sao chép chúng một cách an toàn (nghĩa là ngăn chặn sự đột biến trong tương lai của bản gốc được sao chép) có thể khó khăn. Với <mark><b>spread operator</b></mark>, bạn có một cách dễ dàng để tạo một bản sao (shallow!) của đối tượng hoặc mảng.</p>
+
+    <h3>Destructuring</h3>
+
+    <p><b>Destructuring</b> cho phép bạn dễ dàng truy cập các giá trị của mảng hoặc đối tượng và gán chúng cho các biến.</p>
+
+    <p>Đây là một ví dụ cho một mảng:</p>
+
+    <pre>
+        const array = [ 1 , 2 , 3 ];   
+        const [ a , b ] = array ;  
+        console.log( a ); // in 1 
+        console.log( b ); // in 2 
+        console.log( array ); // in [1, 2, 3] 
+    </pre>
+
+    <p>Và ở đây cho một đối tượng:</p>
+
+    <pre>
+        const myObj = { 
+            name: 'Max', 
+            age: 28 
+        }
+        const { name } = myObj;  
+        console.log( name ); // in 'Tối đa' 
+        console.log( age ); // in undefined
+        console.log( myObj ); // in {name: 'Max', age: 28} 
+    </pre>
+
+    <p><b>Destructuring</b> rất hữu ích khi làm việc với các đối số function(<code>Destructuring</code>). Xem xét ví dụ này:</p>
+
+    <pre>
+        const printName = (personObj) => {   
+            console.log( personObj.name );
+        }
+        printName({ name: 'Max', age: 28 }); // in 'Max'   
+    </pre>
+
+    <p>Ở đây, chúng tôi chỉ muốn in <code>name</code> trong function nhưng chúng tôi chuyển một đối tượng <code>personObj</code> hoàn chỉnh cho hàm. Tất nhiên điều này không có vấn đề gì nhưng nó buộc chúng ta phải gọi <code>personObj.name</code> bên trong function của chúng ta. Chúng tôi có thể rút gọn <code>code</code> này với <b>Destructuring</b>:</p>
+    <pre>
+        const printName = ({ name }) => {   
+            console.log( name );
+        }
+        printName ({ name: 'Max', age: 28 }); // in 'Max') 
+    </pre>
+    <p>Chúng tôi nhận được kết quả tương tự như trên nhưng chúng tôi lưu ít code hơn. Bằng cách <b>destructuring</b>, chúng ta chỉ cần lấy thuộc tính <code>name</code> và lưu trữ nó trong một biến/đối số có tên <code>name</code> mà sau đó chúng ta có thể sử dụng trong thân hàm.</p>
+    
+</body>
+</html>
